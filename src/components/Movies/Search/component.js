@@ -9,8 +9,8 @@ import Movie from "../Movie";
 const Search = ({ searched, setSearchedMovies }) => {
     const {query} = useParams();
     const url = generateSearchUrl(query)
-    useGetData(url, setSearchedMovies)
-    // console.log(searched)
+    useGetData(url, setSearchedMovies, searched)
+    console.log(searched)
     return (
     <section>
         <div className='container'>
