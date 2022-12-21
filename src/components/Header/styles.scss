@@ -1,0 +1,38 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__logo {
+    text-decoration: none;
+    font-size: 32px;
+    color: white;
+    margin: 22px 0;
+  }
+  &__wrapper {
+    background-color: rgb(3,37,65);
+    color: white;
+  }
+  &__search {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-right: 50px;
+    &__input {
+      border: none;
+      border-radius: 10px;
+    }
+    &__submit {
+      position: absolute;
+      right: -53px;
+      border: none;
+      background-color: inherit;
+      color: white;
+      cursor: pointer;
+    }
+    &__error {
+      position: absolute;
+      top: 20px;
+      left: 10px;
+    }
+  }
+}

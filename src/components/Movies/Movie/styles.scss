@@ -1,0 +1,39 @@
+.movie {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  max-width: 200px;
+  //margin: 20px;
+  &__title {
+    display: contents;
+    color: black;
+    font-weight: bold;
+    &:active {
+      color: red;
+    }
+  }
+  &__image{
+    border-radius: 20px;
+  }
+  &__link {
+    border-radius: 20px;
+  }
+  &__rate {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    background-color: white;
+    border-radius: 50%;
+    border: 1px solid black;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    pointer-events: none;
+    user-select: none;
+  }
+}
+
