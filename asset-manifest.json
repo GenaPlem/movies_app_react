@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/movies-app-react/static/css/main.b24fe755.css",
+    "main.js": "/movies-app-react/static/js/main.701c5699.js",
+    "static/js/787.2b35ebb1.chunk.js": "/movies-app-react/static/js/787.2b35ebb1.chunk.js",
+    "static/media/Ailerons-Typeface.otf": "/movies-app-react/static/media/Ailerons-Typeface.29602053d4de24fcf29c.otf",
+    "index.html": "/movies-app-react/index.html",
+    "main.b24fe755.css.map": "/movies-app-react/static/css/main.b24fe755.css.map",
+    "main.701c5699.js.map": "/movies-app-react/static/js/main.701c5699.js.map",
+    "787.2b35ebb1.chunk.js.map": "/movies-app-react/static/js/787.2b35ebb1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b24fe755.css",
+    "static/js/main.701c5699.js"
+  ]
+}
