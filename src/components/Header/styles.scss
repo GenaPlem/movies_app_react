@@ -2,24 +2,29 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 35px 0;
   &__logo {
-    text-decoration: none;
     font-size: 32px;
     color: white;
-    margin: 22px 0;
+    display: contents;
   }
   &__wrapper {
-    background-color: rgb(3,37,65);
+    background-color: #031d33;
+    box-shadow: 0 0 15px 10px rgb(2 27 48 / 60%);
     color: white;
+    z-index: 1;
+    position: relative;
   }
   &__search {
     display: flex;
     flex-direction: column;
     position: relative;
     margin-right: 50px;
+    width: 33%;
     &__input {
       border: none;
       border-radius: 10px;
+      margin-right: 10px;
     }
     &__submit {
       position: absolute;

@@ -1,11 +1,8 @@
 import React from "react";
 import {ErrorMessage, Field, Form, Formik} from "formik";
-import {connect} from "react-redux";
 import {useNavigate} from "react-router-dom";
 
-import {setSearchedMovies} from "../../store/action";
-
-const FormikForm = ({searchedMovies, setSearchedMovies}) => {
+const FormikForm = () => {
     const initialValues = { search: '' };
     const placeholder = {};
     const navigate = useNavigate();
@@ -43,12 +40,4 @@ const FormikForm = ({searchedMovies, setSearchedMovies}) => {
         </Formik>
 )}
 
-const mapStateToProps = state => ({
-    searchedMovies: state.searched,
-})
-
-const mapDispatchToProps = {
-    setSearchedMovies,
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(FormikForm);
+export default FormikForm;

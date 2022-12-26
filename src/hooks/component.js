@@ -1,6 +1,6 @@
 import {useEffect} from "react";
 
-const useGetData = (url, setData, results) => {
+const useGetData = (url, setData) => {
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -8,7 +8,7 @@ const useGetData = (url, setData, results) => {
                 data.results ? setData(data.results) : setData(data);
             })
             .catch(error => console.log(error));
-    },[results])
+    },[url])
 }
 
 export default useGetData;

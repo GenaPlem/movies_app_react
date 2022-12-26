@@ -4,7 +4,6 @@ import FormikForm from "../../forms/FormikForm";
 
 import './styles.scss'
 
-
 const Header = () => (
     <header className="header__wrapper">
         <div className="container">

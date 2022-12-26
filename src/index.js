@@ -6,6 +6,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from "./store/configureStore";
 import {Provider} from "react-redux";
+import './fonts/Ailerons-Typeface.otf';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

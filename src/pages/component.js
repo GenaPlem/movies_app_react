@@ -3,7 +3,7 @@ import {Route, Routes} from "react-router-dom";
 import Home from "../routes/Home/component";
 import Error from "../routes/Error/component";
 import Details from "../components/Movies/Details";
-import Search from "../components/Movies/Search";
+import Search from "../components/Movies/SearchedMovies";
 
 const Invoices = () => (
     <Routes>

@@ -5,4 +5,9 @@
   min-width: 335px;
   gap: 40px;
   margin: 20px 0;
+  font-size: 20px;
+  &__title {
+    font-size: 35px;
+    margin: 40px 0;
+  }
 }

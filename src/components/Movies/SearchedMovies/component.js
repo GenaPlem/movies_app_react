@@ -4,25 +4,27 @@ import {connect} from "react-redux";
 import {setSearchedMovies} from "../../../store/action";
 import useGetData from "../../../hooks";
 import {generateSearchUrl} from "../utils";
-import Movie from "../Movie";
+import SearchedMovie from "./SearchedMovie";
 
-const Search = ({ searched, setSearchedMovies }) => {
+import './styles.scss'
+
+const SearchedMovies = ({ searched, setSearchedMovies }) => {
     const {query} = useParams();
     const url = generateSearchUrl(query)
-    useGetData(url, setSearchedMovies, searched)
-    console.log(searched)
+    useGetData(url, setSearchedMovies)
+
     return (
-    <section>
+    <main>
         <div className='container'>
-            <h1>Search by: {query}</h1>
-            <div className="search">
+            <h1 className='searched__title'>Search by: {query}</h1>
+            <div className="searched">
                 {searched.length !== 0
-                    ? searched.map(movie => (<Movie {...movie} key={movie.id}/>))
-                    : 'No results'
+                    ? searched.map(movie => (<SearchedMovie {...movie} key={movie.id}/>))
+                    : <p className='searched__blank'>There are no results for this search</p>
                 }
             </div>
         </div>
-    </section>
+    </main>
 )}
 
 const mapStateToProps = state => ({
@@ -33,4 +35,4 @@ const mapDispatchToProps = {
     setSearchedMovies,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Search);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchedMovies);

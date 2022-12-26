@@ -10,13 +10,12 @@ import './styles.scss'
 
 const Movies = ({ popular, setPopularMovies }) => {
     const url = generateApiUrl('popular')
-
     useGetData(url, setPopularMovies);
 
     return (
     <section>
         <div className='container'>
-            <h2>Popular movies:</h2>
+            <h2 className='movies__title'>Popular movies:</h2>
             <div className='movies'>
                 {(popular.length !== 0) ? popular.map(movie => (<Movie {...movie} key={movie.id}/>
                 )) : <Error/>}

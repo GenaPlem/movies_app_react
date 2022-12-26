@@ -1,0 +1,13 @@
+.searched {
+  &__title {
+    font-size: 35px;
+    margin: 20px auto;
+  }
+  &__blank {
+    font-size: 25px;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
