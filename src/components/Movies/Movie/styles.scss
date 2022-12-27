@@ -1,0 +1,49 @@
+.movie {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  max-width: 200px;
+  &__title {
+    display: contents;
+    color: black;
+    font-weight: bold;
+    &:active {
+      color: red;
+    }
+  }
+  &__image{
+    border-radius: 20px;
+    box-shadow: 0 0 15px 10px rgb(2 27 48 / 60%);
+    &:hover {
+      box-shadow: 0 0 15px 15px rgb(2 27 48 / 60%);
+    }
+  }
+  &__link {
+    border-radius: 20px;
+    margin-bottom: 5px;
+  }
+  &__rate {
+    font-family: monospace;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    background-color: white;
+    border-radius: 50%;
+    border: 1px solid black;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    pointer-events: none;
+    user-select: none;
+    font-size: 15px;
+    box-shadow: inset 0 0 15px 5px rgb(2 27 48 / 60%);
+  }
+  &__date {
+    margin-top: 5px;
+  }
+}
+

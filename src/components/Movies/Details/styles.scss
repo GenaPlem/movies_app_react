@@ -1,0 +1,50 @@
+.details {
+  font-size: 25px;
+  position: relative;
+  &__img {
+    width: 100%;
+    box-shadow: 0 0 15px 10px rgb(2 27 48 / 60%);
+  }
+  &__title{
+    font-size: 45px;
+    text-align: center;
+    margin: 10px 0;
+  }
+  &__overview{
+    font-size: 25px;
+  }
+  &__website {
+    display: inline-block;
+    color: white;
+    background-color: black;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+    text-decoration: none;
+    &:hover {
+      color: black;
+      background-color: white;
+    }
+  }
+  // &__date {
+
+  // }
+  &__rate {
+    font-size: 15px;
+    font-weight: bold;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background-color: white;
+    border-radius: 50%;
+    border: 1px solid black;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: monospace;
+    box-shadow: inset 0 0 15px 5px rgb(2 27 48 / 60%);
+    user-select: none;
+  }
+}
