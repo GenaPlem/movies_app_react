@@ -11,7 +11,7 @@ $bg-color: #242424;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: $bg-color;
+  background: linear-gradient(60deg, #000000 0%, #2C3E50 120%);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
