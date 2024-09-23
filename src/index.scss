@@ -2,8 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-
-$primary-color: #242424;
+$bg-color: #242424;
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -12,7 +11,7 @@ $primary-color: #242424;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: $primary-color;
+  background-color: $bg-color;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
