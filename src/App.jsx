@@ -1,5 +1,6 @@
-import Header from './Header.jsx'
-import Footer from './Footer.jsx'
+import Header from './components/Header.jsx'
+import Movies from './components/Movies.jsx'
+import Footer from './components/Footer.jsx'
 import './App.css'
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     return (
         <>
             <Header/>
+            <Movies/>
             <Footer/>
         </>
     )
