@@ -1,6 +1,6 @@
 const API_KEY = import.meta.env.VITE_API_KEY
 
-export const useGetData = () => {
+export const useGetData = (category, setData) => {
 
     const options = {
         method: 'GET',
@@ -10,8 +10,8 @@ export const useGetData = () => {
         }
       };
       
-      fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
+      fetch(`https://api.themoviedb.org/3/movie/${category}?language=en-US&page=1`, options)
         .then(response => response.json())
-        .then(response => console.log(response))
+        .then(response => setData(response.results))
         .catch(err => console.error(err));
 }
