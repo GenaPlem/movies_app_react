@@ -3,7 +3,7 @@ import '../index.css'
 const Header = () => {
 
     return (
-        <header className='flex justify-between'>
+        <header className='flex justify-between mb-5 md:mb-10'>
             <a href="#"><img src="src/assets/react.svg" alt="logo" className='logo'/></a>
             <ul className='flex gap-10'>
                 <li><a href="#" className='text-white hover:text-sky-400'>All</a></li>
