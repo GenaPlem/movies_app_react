@@ -14,7 +14,7 @@ const Movies = () => {
         setLoading(true);
         setError(null);
 
-        await fetchData('popular', setMovies);
+        await fetchData('popular', setMovies, setError);
 
         setLoading(false)
     }
@@ -23,9 +23,8 @@ const Movies = () => {
         handleFetchData()
     }, [])
 
-    if (loading) {
-        return <Loader/>
-    }
+    if (loading) return <Loader/>
+    if (error) return <p>Error: {error}</p>
 
     return (
         <main>
