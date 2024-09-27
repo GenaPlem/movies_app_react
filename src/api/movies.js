@@ -1,6 +1,6 @@
 const API_KEY = import.meta.env.VITE_API_KEY
 
-export const useGetData = (category, setData) => {
+export const fetchData = async (category, setData) => {
 
     const options = {
         method: 'GET',
