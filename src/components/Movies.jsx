@@ -16,12 +16,12 @@ const Movies = () => {
 
         await fetchData('popular', setMovies, setError);
 
-        setLoading(false)
-    }
+        setLoading(false);
+    };
 
     useEffect(() => {
-        handleFetchData()
-    }, [])
+        handleFetchData();
+    }, []);
 
     if (loading) return <Loader/>
     if (error) return <p>Error: {error}</p>
@@ -33,7 +33,7 @@ const Movies = () => {
                 {movies.length > 0 && movies.map(movie => <MovieCard {...movie} key={movie.id}/>)}
             </section>
         </main>
-    )
-}
+    );
+};
 
 export default Movies;
