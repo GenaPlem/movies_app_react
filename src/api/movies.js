@@ -1,6 +1,6 @@
 const API_KEY = import.meta.env.VITE_API_KEY
 
-export const fetchData = async (category, setData) => {
+export const fetchData = async (category, setData, setError) => {
 
     const options = {
         method: 'GET',
@@ -13,5 +13,5 @@ export const fetchData = async (category, setData) => {
       fetch(`https://api.themoviedb.org/3/movie/${category}?language=en-US&page=1`, options)
         .then(response => response.json())
         .then(response => setData(response.results))
-        .catch(err => console.error(err));
+        .catch(err => setError(err));
 }
