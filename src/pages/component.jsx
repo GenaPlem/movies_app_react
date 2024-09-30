@@ -2,10 +2,12 @@ import { Route, Routes } from 'react-router-dom';
 
 import Home from '../routes/Home/component';
 import Error from '../routes/Error/component';
+import MovieDetails from '../components/MovieDetails';
 
 const Invoices = () => (
     <Routes>
         <Route path='/' element={<Home/>} />
+        <Route path='details/:movieId' element={<MovieDetails/>} />
         <Route path='*' element={<Error/>} />
     </Routes>
 );
