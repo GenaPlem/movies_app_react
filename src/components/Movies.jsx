@@ -27,12 +27,9 @@ const Movies = () => {
     if (error) return <p>Error: {error}</p>
 
     return (
-        <main>
-            <h1 className='text-3xl font-semibold my-9 md:text-5xl'>Your Ultimate Movie Guide</h1>
-            <section className='grid grid-cols-2 gap-10 my-14 md:mt-20 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5'>
-                {movies.length > 0 && movies.map(movie => <MovieCard {...movie} key={movie.id}/>)}
-            </section>
-        </main>
+        <section className='grid grid-cols-2 gap-10 my-14 md:mt-20 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5'>
+            {movies.length > 0 && movies.map(movie => <MovieCard {...movie} key={movie.id}/>)}
+        </section>
     );
 };
 
