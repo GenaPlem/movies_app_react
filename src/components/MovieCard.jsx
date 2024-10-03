@@ -1,6 +1,6 @@
 import '../index.css'
 import { Link } from 'react-router-dom';
-import { formateDate } from '../helpers/formateDate';
+import { formateDate } from '../helpers/utils';
 
 const MovieCard = ({id, title, poster_path, release_date}) => {
     
