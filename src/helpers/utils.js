@@ -6,4 +6,4 @@ export const formateDate = (dateString) => {
 
 
 
-export const calculateRate = rate => Math.round(rate*10)+'%';
+export const calculateRate = rate => Math.round(rate*10);
