@@ -1,5 +1,4 @@
 import { useParams } from 'react-router-dom';
-import '../index.css';
 import { useState, useEffect } from 'react';
 import { fetchData } from '../api/movies';
 import Loader from './Loader';

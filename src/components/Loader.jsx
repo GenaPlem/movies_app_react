@@ -1,4 +1,3 @@
-import '../index.css';
 import 'ldrs/trefoil'
 
 const Loader = () => {

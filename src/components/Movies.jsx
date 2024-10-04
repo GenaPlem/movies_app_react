@@ -1,4 +1,3 @@
-import '../index.css';
 import MovieCard from './MovieCard';
 import Loader from './Loader';
 import { useEffect, useState } from 'react';
