@@ -1,6 +1,6 @@
 const API_KEY = import.meta.env.VITE_API_KEY
 
-export const fetchData = async (type, queryOrId = '', setData, setError, page = 1) => {
+export const fetchData = async (type, queryOrId = '', setData, setError, page = 1, loadMore = false) => {
 
     const options = {
         method: 'GET',
@@ -23,8 +23,21 @@ export const fetchData = async (type, queryOrId = '', setData, setError, page = 
     try {
       const response = await fetch(url, options);
       const data = await response.json();
-
-      data.results ? setData(data.results) : setData(data);
+      if (loadMore) {
+        setData((prevData) => {
+          // Set with unique movies id
+          const existingIds = new Set(prevData.map(movie => movie.id));
+          
+          // Filter for unique movies data
+          const newMovies = data.results
+            ? data.results.filter(movie => !existingIds.has(movie.id))
+            : []
+          
+          return [...prevData, ...newMovies]
+        })
+      } else {
+        data.results ? setData(data.results) : setData(data);
+      }
     } catch (err) {
       setError(err.message)
     }
