@@ -1,6 +1,6 @@
 const API_KEY = import.meta.env.VITE_API_KEY
 
-export const fetchData = async (request, setData, setError, page = 0) => {
+export const fetchData = async (type, queryOrId = '', setData, setError, page = 1) => {
 
     const options = {
         method: 'GET',
@@ -9,11 +9,23 @@ export const fetchData = async (request, setData, setError, page = 0) => {
           Authorization: `Bearer ${API_KEY}`
         }
       };
-      
-      fetch(`https://api.themoviedb.org/3/movie/${request}?language=en-US${page?`&page=${page}`:''}`, options)
-        .then(response => response.json())
-        .then(data => {
-          data.results ? setData(data.results) : setData(data)
-        })
-        .catch(err => setError(err));
+
+    let url = '';
+
+    if (type === 'search') {
+      url = `https://api.themoviedb.org/3/search/movie?query=${queryOrId}&language=en-US&page=${page}`;;
+    } else if (type === 'movie') {
+      url = `https://api.themoviedb.org/3/movie/${queryOrId}?language=en-US`;
+    } else if (type === 'popular') {
+      url = `https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}`;
+    }
+
+    try {
+      const response = await fetch(url, options);
+      const data = await response.json();
+
+      data.results ? setData(data.results) : setData(data);
+    } catch (err) {
+      setError(err.message)
+    }
 }
