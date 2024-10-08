@@ -12,7 +12,8 @@ const SearchBar = () => {
 
     const handleSearch = (e) => {
         e.preventDefault();
-        query && navigate(`/search/${query}`);          
+        query && navigate(`/search/${query}`);
+        setQuery('');
     }
 
     return (
