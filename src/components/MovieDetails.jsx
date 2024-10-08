@@ -11,18 +11,10 @@ const MovieDetails = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    const handleFetchData = async () => {
-        setLoading(true);
-        setError(null);
-
-        await fetchData(movieId, setMovie, setError);
-
-        setLoading(false);
-    };
-
     useEffect(() => {
-        handleFetchData();
-    }, []);
+        fetchData('movie', movieId, setMovie, setError);
+        setLoading(false);
+    }, [movieId]);
 
     if (loading) return <Loader/>
     if (error) return <p>Error: {error}</p>

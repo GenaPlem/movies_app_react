@@ -9,17 +9,9 @@ const Movies = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    const handleFetchData = async () => {
-        setLoading(true);
-        setError(null);
-
-        await fetchData('popular', setMovies, setError);
-
-        setLoading(false);
-    };
-
     useEffect(() => {
-        handleFetchData();
+        fetchData('popular', '', setMovies, setError);
+        setLoading(false);
     }, []);
 
     if (loading) return <Loader/>
