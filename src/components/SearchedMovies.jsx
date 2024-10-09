@@ -22,10 +22,10 @@ const SearchedMovies = () => {
         <main>
             <section className='flex flex-col gap-10'>
                 <h1 className="mt-3 text-2xl">Movies searched by: {query}</h1>
-                {searchResults.length > 0 ?
-                 searchResults.map(movie => <SearchedMovie {...movie} key={movie.id}/>) :
-                 <p>No results found</p>
-                 }
+                { searchResults.length > 0 ?
+                searchResults.map(movie => <SearchedMovie {...movie} key={movie.id}/>) :
+                <p>No results found</p>
+                }
             </section>
         </main>
     )
