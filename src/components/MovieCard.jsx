@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { formateDate } from '../helpers/utils';
-import movie_mock_img from '../assets/movie_mock_img.webp';
+import movie_mock_img from '../assets/movie_mock_img.png';
 
 const MovieCard = ({id, title, poster_path, release_date}) => {
 
@@ -13,7 +13,7 @@ const MovieCard = ({id, title, poster_path, release_date}) => {
     return (
         <article className='relative flex flex-col justify-between overflow-hidden transition duration-300 transform shadow-neon rounded-xl hover:scale-105'>
             <div>
-                <img src={movieImg} alt={`Poster of ${title} movie`} className='object-cover w-full max-h-72 aspect-auto'/>
+                <img src={movieImg} alt={`Poster of ${title} movie`} className='object-cover w-full h-auto'/>
                 <h2 className='m-1 text-sm font-bold md:text-xl line-clamp-2'>{title}</h2>
             </div>
             <p className='mb-2 text-xs text-slate-500'>{formateDate(release_date)}</p>
