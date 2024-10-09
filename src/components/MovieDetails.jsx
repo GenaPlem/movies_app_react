@@ -29,7 +29,7 @@ const MovieDetails = () => {
             <div className="relative w-full h-auto">
                 <img src={backdrop_mock_img}
                      alt="Placeholder"
-                     className="object-cover w-full h-auto"
+                     className="object-cover w-full h-auto opacity-5"
                 />
 
                 {movie.backdrop_path && (
