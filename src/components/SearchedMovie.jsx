@@ -1,12 +1,21 @@
 import { Link } from 'react-router-dom';
 import { formateDate } from '../helpers/utils';
+import movie_mock_img from '../assets/movie_mock_img.webp';
 
 const SearchedMovie = ({id, title, poster_path, release_date, overview}) => {
+
+    let movieImg = '';
+
+    poster_path ? 
+    movieImg = `https://image.tmdb.org/t/p/w200/${poster_path}` :
+    movieImg = movie_mock_img;
+
+    
     
     return (
         <article className='relative flex overflow-hidden shadow-neon rounded-xl'>
-            <div>
-                <img src={`https://image.tmdb.org/t/p/w200/${poster_path}`} alt={`Poster of ${title} movie`} className='object-cover h-auto w-28 md:w-full'/>
+            <div className='max-w-48'>
+                <img src={movieImg} alt={`Poster of ${title} movie`} className='object-cover h-auto w-28 md:w-full'/>
             </div>
             <div className='flex flex-col flex-1'>
                 <h2 className='mt-2 font-bold text-md md:text-xl line-clamp-1'>{title}</h2>
