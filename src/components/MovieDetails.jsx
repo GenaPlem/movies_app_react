@@ -25,7 +25,7 @@ const MovieDetails = () => {
             {
                 movie.backdrop_path ?
                 <img src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt={movie.title} loading="lazy" /> :
-                <img src={backdrop_mock_img} alt={movie.title} className='opacity-5' />
+                <img src={backdrop_mock_img} alt={movie.title} className='opacity-30' />
             }
             <h1 className='my-10 text-2xl sm:text-3xl'>{movie.title}</h1>
             <div className='flex items-start my-5'>
