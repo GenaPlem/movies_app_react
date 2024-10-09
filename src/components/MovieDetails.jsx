@@ -17,29 +17,16 @@ const MovieDetails = () => {
         setLoading(false);
     }, [movieId]);
 
-    const handleImageLoad = (e) => {
-        e.target.style.opacity = 1;
-      };
-
     if (loading) return <Loader/>
     if (error) return <p>Error: {error}</p>
 
     return (
         <main>
-            <div className="relative w-full h-auto">
-                <img src={backdrop_mock_img}
-                     alt="Placeholder"
-                     className="object-cover w-full h-auto opacity-5"
-                />
-
-                {movie.backdrop_path && (
-                <img src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
-                     alt={movie.title}
-                     onLoad={handleImageLoad}
-                     className="absolute inset-0 object-cover w-full h-auto transition-opacity duration-500 ease-in-out opacity-0"
-                />
-                )}
-            </div>
+            {
+                movie.backdrop_path ?
+                <img src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt={movie.title} loading="lazy" /> :
+                <img src={backdrop_mock_img} alt={movie.title} className='opacity-5' />
+            }
             <h1 className='my-10 text-2xl sm:text-3xl'>{movie.title}</h1>
             <div className='flex items-start my-5'>
                 {   
