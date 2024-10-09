@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { fetchData } from '../api/movies';
 import Loader from './Loader';
 import { calculateRate } from '../helpers/utils';
-import backdrop_mock_img from '../assets/backdrop_mock_img.webp';
+import backdrop_mock_img from '../assets/backdrop_mock_img.png';
 
 const MovieDetails = () => {
     const {movieId} = useParams();
@@ -17,16 +17,29 @@ const MovieDetails = () => {
         setLoading(false);
     }, [movieId]);
 
+    const handleImageLoad = (e) => {
+        e.target.style.opacity = 1;
+      };
+
     if (loading) return <Loader/>
     if (error) return <p>Error: {error}</p>
 
     return (
         <main>
-            {
-                movie.backdrop_path ?
-                <img src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt={movie.title} /> :
-                <img src={backdrop_mock_img} alt={movie.title} />
-            }
+            <div className="relative w-full h-auto">
+                <img src={backdrop_mock_img}
+                     alt="Placeholder"
+                     className="object-cover w-full h-auto"
+                />
+
+                {movie.backdrop_path && (
+                <img src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+                     alt={movie.title}
+                     onLoad={handleImageLoad}
+                     className="absolute inset-0 object-cover w-full h-auto transition-opacity duration-500 ease-in-out opacity-0"
+                />
+                )}
+            </div>
             <h1 className='my-10 text-2xl sm:text-3xl'>{movie.title}</h1>
             <div className='flex items-start my-5'>
                 {   
