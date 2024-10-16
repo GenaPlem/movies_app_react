@@ -39,7 +39,7 @@ const Movies = () => {
             onClick={handleLoadMoreClick}
             disabled={isLoadMore}
           >
-            Load more
+            {isLoadMore ? "Loading..." : "Load more"}
           </button>
         </section>
       )}
