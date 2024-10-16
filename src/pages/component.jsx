@@ -1,10 +1,9 @@
-import { createBrowserRouter, Route, Routes } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 
 import Home from "../routes/Home/component";
 import Error from "../routes/Error/component";
 import MovieDetails from "../components/MovieDetails";
 import SearchedMovies from "../components/SearchedMovies";
-import App from "../App";
 import RootLayout from "../routes/RootLayout";
 
 const routes = createBrowserRouter(
