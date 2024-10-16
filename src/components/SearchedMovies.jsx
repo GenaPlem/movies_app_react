@@ -5,31 +5,45 @@ import Loader from "./Loader";
 import SearchedMovie from "./SearchedMovie";
 
 const SearchedMovies = () => {
-    const {query} = useParams();
-    const [searchResults, setSearchResults] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+  const { query } = useParams();
+  const [searchResults, setSearchResults] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-    useEffect(() => {
-        fetchData('search', query, setSearchResults, setError);
-        setLoading(false);
-    }, [query]);
+  useEffect(() => {
+    const fetchMovies = async () => {
+      setIsLoading(true);
+      try {
+        await fetchData("search", query, setSearchResults, setError);
+      } catch (err) {
+        setError("Failed to fetch data");
+      }
+      setIsLoading(false);
+    };
 
-    if (loading) return <Loader/>
-    if (error) return <p>Error: {error}</p>
+    fetchMovies();
+  }, [query]);
 
-    return (
-        <main>
-            <section className='flex flex-col gap-10'>
-                <h1 className="mt-3 text-2xl">Movies searched by: {query}</h1>
-                { searchResults.length > 0 ?
-                searchResults.map(movie => <SearchedMovie {...movie} key={movie.id}/>) :
-                <p>No results found</p>
-                }
-            </section>
-        </main>
-    )
+  if (error) return <p>Error: {error}</p>;
 
-}
+  return (
+    <div>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <section className="flex flex-col gap-10">
+          <h1 className="mt-3 text-2xl">Movies searched by: {query}</h1>
+          {searchResults && searchResults.length > 0 ? (
+            searchResults.map((movie) => (
+              <SearchedMovie {...movie} key={movie.id} />
+            ))
+          ) : (
+            <p>No results found</p>
+          )}
+        </section>
+      )}
+    </div>
+  );
+};
 
 export default SearchedMovies;
