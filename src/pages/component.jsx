@@ -1,17 +1,28 @@
-import { Route, Routes } from 'react-router-dom';
+import { createBrowserRouter, Route, Routes } from "react-router-dom";
 
-import Home from '../routes/Home/component';
-import Error from '../routes/Error/component';
-import MovieDetails from '../components/MovieDetails';
-import SearchedMovies from '../components/SearchedMovies';
+import Home from "../routes/Home/component";
+import Error from "../routes/Error/component";
+import MovieDetails from "../components/MovieDetails";
+import SearchedMovies from "../components/SearchedMovies";
+import App from "../App";
+import RootLayout from "../routes/RootLayout";
 
-const Invoices = () => (
-    <Routes>
-        <Route path='/' element={<Home/>} />
-        <Route path='details/:movieId' element={<MovieDetails/>} />
-        <Route path='search/:query' element={<SearchedMovies/>} />
-        <Route path='*' element={<Error/>} />
-    </Routes>
+const routes = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <RootLayout />,
+      children: [
+        { path: "/", element: <Home /> },
+        { path: "details/:movieId", element: <MovieDetails /> },
+        { path: "search/:query", element: <SearchedMovies /> },
+        { path: "*", element: <Error /> },
+      ],
+    },
+  ],
+  {
+    basename: "/movies_app_react/",
+  }
 );
 
-export default Invoices;
+export default routes;
