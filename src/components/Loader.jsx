@@ -2,7 +2,7 @@ import "ldrs/trefoil";
 
 const Loader = () => {
   return (
-    <div className="flex flex-col items-center justify-center flex-1">
+    <>
       <l-trefoil
         size="65"
         stroke="4"
@@ -11,7 +11,7 @@ const Loader = () => {
         speed="1.4"
         color="white"
       ></l-trefoil>
-    </div>
+    </>
   );
 };
 

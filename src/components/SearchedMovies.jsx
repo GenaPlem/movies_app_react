@@ -27,9 +27,11 @@ const SearchedMovies = () => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div>
+    <>
       {isLoading ? (
-        <Loader />
+        <div className="flex items-center justify-center flex-1">
+          <Loader />
+        </div>
       ) : (
         <section className="flex flex-col gap-10">
           <h1 className="mt-3 text-2xl">Movies searched by: {query}</h1>
@@ -42,7 +44,7 @@ const SearchedMovies = () => {
           )}
         </section>
       )}
-    </div>
+    </>
   );
 };
 

@@ -26,9 +26,9 @@ const Movies = () => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <section>
+    <>
       {!isLoading && movies.length > 0 && (
-        <>
+        <section>
           <div className="grid grid-cols-2 gap-10 my-14 md:mt-20 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
             {movies.map((movie) => (
               <MovieCard {...movie} key={movie.id} />
@@ -41,14 +41,14 @@ const Movies = () => {
           >
             Load more
           </button>
-        </>
+        </section>
       )}
       {isLoading && (
-        <div>
+        <div className="flex items-center justify-center flex-1">
           <Loader />
         </div>
       )}
-    </section>
+    </>
   );
 };
 
