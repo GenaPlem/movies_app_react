@@ -5,6 +5,7 @@ import Error from "../pages/Error";
 import MovieDetails from "../components/movies/MovieDetails";
 import SearchedMovies from "../components/search/SearchedMovies";
 import RootLayout from "../components/layout/RootLayout";
+import { homeLoader } from "../loaders/homeLoader";
 
 const routes = createBrowserRouter(
   [
@@ -15,6 +16,7 @@ const routes = createBrowserRouter(
         {
           path: "/",
           element: <Home />,
+          loader: homeLoader,
         },
         { path: "details/:movieId", element: <MovieDetails /> },
         { path: "search/:query", element: <SearchedMovies /> },
