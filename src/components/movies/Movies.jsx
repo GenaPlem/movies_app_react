@@ -49,7 +49,7 @@ const Movies = () => {
             disabled={!hasNextPage || isFetchingNextPage}
           >
             {isFetchingNextPage
-              ? "Loading more..."
+              ? "Loading..."
               : hasNextPage
               ? "Load more"
               : "No more movies"}
