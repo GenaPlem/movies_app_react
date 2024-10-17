@@ -59,3 +59,11 @@ export const fetchPopularMovies = async (page = 1) => {
   }
   return response.json();
 }
+
+export const fetchMovieDetails = async (movieId) => {
+  const response = await fetch(`${BASE_URL}/movie/${movieId}?language=en-US`, options);
+  if (!response.ok) {
+    throw new Error('Failed to fetch movie details');
+  }
+  return response.json();
+};
