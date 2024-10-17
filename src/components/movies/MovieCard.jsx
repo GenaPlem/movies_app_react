@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { formateDate } from "../helpers/utils";
-import movie_mock_img from "../assets/movie_mock_img.png";
+import { formateDate } from "../../helpers/utils";
+import movie_mock_img from "../../assets/movie_mock_img.png";
 
 const MovieCard = ({ id, title, poster_path, release_date }) => {
   let movieImg = "";

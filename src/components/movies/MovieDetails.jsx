@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { fetchData } from "../api/movies";
-import Loader from "./Loader";
-import { calculateRate } from "../helpers/utils";
-import backdrop_mock_img from "../assets/backdrop_mock_img.png";
+import { fetchData } from "../../api/movies";
+import Loader from "../Loader";
+import { calculateRate } from "../../helpers/utils";
+import backdrop_mock_img from "../../assets/backdrop_mock_img.png";
 
 const MovieDetails = () => {
   const { movieId } = useParams();

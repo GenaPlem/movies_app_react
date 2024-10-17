@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchData } from "../api/movies";
-import Loader from "./Loader";
+import { fetchData } from "../../api/movies";
+import Loader from "../Loader";
 import SearchedMovie from "./SearchedMovie";
 
 const SearchedMovies = () => {

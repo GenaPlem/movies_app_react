@@ -1,7 +1,7 @@
 import MovieCard from "./MovieCard";
-import Loader from "./Loader";
+import Loader from "../Loader";
 import { useEffect, useState } from "react";
-import { fetchData } from "../api/movies";
+import { fetchData } from "../../api/movies";
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
