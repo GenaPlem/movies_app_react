@@ -8,7 +8,7 @@ import RootLayout from "../components/layout/RootLayout";
 import { homeLoader } from "../loaders/homeLoader";
 import { movieDetailsLoader } from "../loaders/movieDetailsLoader";
 
-const routes = createBrowserRouter(
+const router = createBrowserRouter(
   [
     {
       path: "/",
@@ -34,4 +34,4 @@ const routes = createBrowserRouter(
   }
 );
 
-export default routes;
+export default router;
