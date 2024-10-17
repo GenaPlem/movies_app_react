@@ -5,7 +5,7 @@ import { useLoaderData } from "react-router-dom";
 
 const Movies = () => {
   const initialData = useLoaderData();
-  const [movies, setMovies] = useState(initialData.results || []);
+  const [movies, setMovies] = useState(initialData || []);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [page, setPage] = useState(1);
