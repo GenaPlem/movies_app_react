@@ -1,48 +1,58 @@
-import MovieCard from "./MovieCard";
-import { useState } from "react";
 import { fetchPopularMovies } from "../../api/movies";
 import { useLoaderData } from "react-router-dom";
+import { useInfiniteQuery } from "@tanstack/react-query";
+import MovieCard from "./MovieCard";
+import Loader from "../Loader";
 
 const Movies = () => {
-  const initialData = useLoaderData();
-  const [movies, setMovies] = useState(initialData || []);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [page, setPage] = useState(1);
+  const initialLoaderData = useLoaderData();
 
-  const handleLoadMoreClick = async () => {
-    setIsLoading(true);
-    setPage((prevPage) => prevPage + 1);
-    try {
-      const data = await fetchPopularMovies(page + 1);
-      const uniqueMovies = data.results.filter(
-        (movie) => !movies.find((m) => m.id === movie.id)
-      );
-      setMovies((prevMovies) => [...prevMovies, ...uniqueMovies]);
-    } catch (err) {
-      setError("Failed to load more movies");
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  const {
+    data, // Data from pages
+    error,
+    isLoading,
+    isFetchingNextPage,
+    fetchNextPage,
+    hasNextPage,
+  } = useInfiniteQuery({
+    queryKey: ["popularMovies"], // Unique key
+    queryFn: ({ pageParam = 1 }) => fetchPopularMovies(pageParam),
+    getNextPageParam: (lastPage) => {
+      return lastPage.page < lastPage.total_pages
+        ? lastPage.page + 1
+        : undefined;
+    },
+    initialData: {
+      pages: [{ results: initialLoaderData }],
+      pageParams: [1],
+    },
+  });
 
   if (error) return <p>Error: {error}</p>;
 
   return (
     <>
-      {movies.length > 0 && (
+      {isLoading ? (
+        <Loader />
+      ) : (
         <section>
           <div className="grid grid-cols-2 gap-10 my-14 md:mt-20 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-            {movies.map((movie) => (
-              <MovieCard {...movie} key={movie.id} />
-            ))}
+            {data.pages.map((page) =>
+              page.results.map((movie) => (
+                <MovieCard {...movie} key={movie.id} />
+              ))
+            )}
           </div>
           <button
             className="text-black bg-sky-400"
-            onClick={handleLoadMoreClick}
-            disabled={isLoading}
+            onClick={() => fetchNextPage()}
+            disabled={!hasNextPage || isFetchingNextPage}
           >
-            {isLoading ? "Loading..." : "Load more"}
+            {isFetchingNextPage
+              ? "Loading more..."
+              : hasNextPage
+              ? "Load more"
+              : "No more movies"}
           </button>
         </section>
       )}
