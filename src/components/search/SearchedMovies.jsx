@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchData } from "../../api/movies";
+import { fetchSearchMovies } from "../../api/movies";
 import Loader from "../Loader";
 import SearchedMovie from "./SearchedMovie";
 
@@ -14,7 +14,8 @@ const SearchedMovies = () => {
     const fetchMovies = async () => {
       setIsLoading(true);
       try {
-        await fetchData("search", query, setSearchResults, setError);
+        const data = await fetchSearchMovies(query);
+        setSearchResults(data.results);
       } catch (err) {
         setError("Failed to fetch data");
       }
